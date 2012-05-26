@@ -1,0 +1,5 @@
+#surefire
+#Sat May 26 12:37:21 BRT 2012
+user.dir=/home/bruno/workspace/twitter-robot
+localRepository=/home/bruno/.m2/repository
+basedir=/home/bruno/workspace/twitter-robot

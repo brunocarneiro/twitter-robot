@@ -12,26 +12,31 @@ public class MailUtil {
 		return "<html><head><title>Email do Robô do Twitter</title></head><body>";
 	}
 	
-	public String writeForm(String videoUrl) {
-		return "<form action=\"http://ec2-50-16-71-46.compute-1.amazonaws.com/creative/\" method=\"POST\">" +
-				"<input name=\"url\" value=\""+videoUrl+"\"><input name=\"title\"><input name=\"keywords\">" +
-				"<input name=\"description\"><input name=\"category\"><input type=\"submit\" title=\"OK\"><br/>"+writeEmbed(videoUrl)+"</form>";
+	public String writeForm(int cont, String videoUrl) {
+		return "<table><tr><h1>"+cont+".</h1></tr>" +
+				"<tr><td><label>Url</label></td><td><label>Title</label></td><td><label>Keywords</label></td><td><label>Description</label></td>"+
+				"<td><label>Category</label></td></tr>"+
+				"<tr><form action=\"http://ec2-50-16-71-46.compute-1.amazonaws.com/creative/\" method=\"POST\">" +
+
+				"<td><input name=\"url\" value=\""+videoUrl+"\"></td><td><input name=\"title\"><input name=\"keywords\"></td>" +
+				"<td><input name=\"description\"></td><td><input name=\"category\"></td><td><input type=\"submit\" title=\"OK\"></td>" +
+				"<br/></form></tr><tr>"+writeEmbed(videoUrl)+"</tr></table>";
 	}
 	
 	public String writeEmbed(String videoUrl) {
 		
-		return "<a href=\"http://www.youtube.com/watch?v="+videoUrl+"\" >Link</a><iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/"+videoUrl+"\" frameborder=\"0\" allowfullscreen></iframe>";
+		return "<td><a href=\"http://www.youtube.com/watch?v="+videoUrl+"\" >Link</a></td><td><iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/"+videoUrl+"\" frameborder=\"0\" allowfullscreen></iframe></td>";
 	}
 
 	public String writeFooter(){
-		return "</body></html>";
+		return "</table></body></html>";
 	}
 
 	public String writeHtmlMessage(List<String> youtubeUrls){
 		String html=writeHeader();
-		
+		int cont=0;
 		for(String s : youtubeUrls){
-			html+=writeForm(s);
+			html+=writeForm(++cont, s);
 		}
 		html+=writeFooter();
 		return html;
