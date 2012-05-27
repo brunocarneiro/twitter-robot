@@ -1,5 +1,5 @@
 #surefire
-#Sat May 26 12:37:21 BRT 2012
+#Sun May 27 11:26:40 BRT 2012
 testClassesDirectory=/home/bruno/workspace/twitter-robot/target/test-classes
 classPathUrl.4=/home/bruno/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar
 classPathUrl.3=/home/bruno/.m2/repository/org/apache/commons/commons-email/1.1/commons-email-1.1.jar
